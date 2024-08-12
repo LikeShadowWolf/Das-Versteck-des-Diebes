@@ -1,0 +1,102 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    max-width: 90%;
+    justify-content: center;
+}
+
+.sticky-note {
+    width: 130px;
+    height: 130px;
+    background-color: #ffeb3b;
+    border: 2px solid #fbc02d;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transform-origin: center;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    cursor: pointer;
+}
+
+.note-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 10px;
+    text-align: center;
+}
+
+.note-text {
+    margin: 0;
+    font-size: 14px;
+}
+
+.action-button {
+    margin-top: 10px;
+    background-color: #f57c00;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.action-button:hover {
+    background-color: #e64a19;
+}
+
+.sticky-note.expanded {
+    transform: scale(1.5);
+    z-index: 10;
+}
+
+.sticky-note.expanded .action-button {
+    background-color: #388e3c; /* Farbe für "Zurück" */
+}
+
+.sticky-note.expanded .action-button:hover {
+    background-color: #2c6d1f; /* Dunklere Farbe für "Zurück" */
+}
+
+.sticky-note.expanded .note-text {
+    font-size: 18px; /* Größerer Text im expandierten Zustand */
+}
+
+.sticky-note:not(.expanded) .action-button {
+    background-color: #f57c00; /* Farbe für "Ansehen" */
+}
+
+.sticky-note:not(.expanded) .action-button:hover {
+    background-color: #e64a19; /* Dunklere Farbe für "Ansehen" */
+}
+
+/* Media Queries für kleinere Bildschirme */
+@media (max-width: 600px) {
+    .sticky-note {
+        width: 100px;
+        height: 100px;
+    }
+
+    .note-text {
+        font-size: 12px;
+    }
+
+    .action-button {
+        padding: 4px 8px;
+        font-size: 12px;
+    }
+}
